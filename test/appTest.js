@@ -1,24 +1,29 @@
 const assert = require('chai').assert;
 const app = require('../app');
 
+let sayHelloResult = app.sayHello();
+let addNumberResult = app.addNumbers(5,5);
+let toCapital = app.toCapital('string');
+
 describe('App', function(){
     it('SayHello should return hello', function(){
-        let result = app.sayHello();
-        assert.equal(result, 'Hello');
+        assert.equal(sayHelloResult, 'Hello');
     });
 
     it('sayHello should return type string', function(){
         let result = app.sayHello();
-        assert.typeOf(result,'string');
+        assert.typeOf(sayHelloResult,'string');
     });
 
     it('addNumbers should be above 5', function(){
-        let result = app.addNumbers(5,5);
-        assert.isAbove(result,5);
+        assert.isAbove(addNumberResult,5);
     });
 
     it('addNumbers should return type number', function(){
-        let result = app.addNumbers(5,5);
-        assert.typeOf(result,'number');
+        assert.typeOf(addNumberResult,'number');
     });
+    
+    it('toCapital should return',function(){
+        assert.equal(toCapital,'STRING');
+    })
 });
